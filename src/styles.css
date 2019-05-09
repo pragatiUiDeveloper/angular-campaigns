@@ -1,0 +1,109 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.headerClass{
+    background-color: #4343c5
+}
+.headerContent{
+    font-size :1.2em;
+    color: white !important;
+    font-style: bold !important;
+    margin:0px 5px;
+}
+h3.center{
+    text-align: center
+}
+.btn-center{
+    display:flex;
+    justify-content: center;
+}
+body .ui-button {
+    margin: 4px !important;
+    background-color: #26b73d !important;
+    border:  #26b73d !important;
+    color: white;
+}
+body .ui-widget.ui-table  {
+    margin: 0px 255px !important;
+}
+.campaign-text{
+    padding: 0px;
+    margin: 0px;
+    font-size: 0.9em;
+}
+
+.btn.dollarbtn{
+    border-radius: 50% !important;
+    background: #4343c5 !important;
+    color: white;
+}
+.btn.dollarbtn:hover{
+    border-radius: 50% !important;
+    background: #4343c5 !important;
+    color: white;
+}
+.fa.fa-sm{
+    font-size: 0.7em;
+    margin-left:3px;
+}
+.sm-font{
+    font-size: 0.7em;
+}
+.dark-blue{
+    color: #4343c5 !important;
+}
+.grey{
+    color:grey;
+}
+.blue{
+    color:blue;   
+}
+.activeTab{
+    color: #26b73d;
+    background-color: white;
+    border: 1px solid #26b73d;
+}
+.nonActiveTab{
+    color: white;
+    background-color: #26b73d;;
+    border: 1px solid white;
+}
+.margin-left{
+    margin-left:17px;
+}
+.margin-fa.fa{
+    margin:13px 0px;
+}
+.margin-div{
+    margin: 0px 6px;
+}
+
+.inputClass{
+    display: none;
+}
+.ui-calendar .ui-datepicker.ui-widget{
+    min-width: unset !important;
+}
+.calenderClass{
+    width: 0%;
+    visibility: hidden;
+}
+.modalContent{
+    display:block;
+     margin-left:10px;
+     border:1px dotted grey ;
+     border-radius: 10px;
+     padding :5px;
+     margin:5pxl
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+.example-button-row button.class1{
+    background: yellow!important;
+    color:black !important;
+}
+.example-button-row button.class2{
+    background: grey!important;
+    color:black !important;
+}

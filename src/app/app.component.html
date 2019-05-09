@@ -1,0 +1,85 @@
+<header class="headerClass" style="display:flex;justify-content: space-between">
+  <div style="display:inline;text-align: center">
+    <img src="https://picsum.photos/250/340" style="display: inline; height:50px; width:50px;border-radius: 50%">
+    <a class="headerContent">Spotlight</a>
+  </div>
+  <div style="display:inline;text-align: right">
+      <a class="headerContent">BETA</a>
+      <button> <i class="fa fa-bars"></i></button>
+  </div>
+</header>
+<br><br>
+
+<p-dialog header="Campaign Details" [(visible)]="display">
+    <div style="display:block;text-align: center">
+        <img src={{currentCampaign?.img_url}} style="display: inline; height:50px; width:50px;">
+    </div>
+    <div class="modalContent">
+        <h3 class="campaign-text dark-blue"> {{currentCampaign?.name}}</h3>
+        <p class="campaign-text grey"> {{currentCampaign?.location}}</p>
+        <p class="campaign-text dark-blue"> {{currentCampaign?.date | date}}</p>
+        <p class="campaign-text grey"> {{currentCampaign?.dayDiffLine}}</p>
+    </div>
+</p-dialog>
+
+<h3 class="dark-blue center">Manage <b>Campaigns</b></h3>
+<div class="btn-center">
+    <div class="example-button-row">
+        <button mat-raised-button (click)="listCampaigns('upcoming')" [class]="eventTime=='upcoming'?'activeTab':'nonActiveTab'" disableRipple=true>UPCOMING CAMPAIGNS</button>
+        <button mat-raised-button (click)="listCampaigns('live')" [class]="eventTime=='live'?'activeTab':'nonActiveTab'" disableRipple=true>LIVE CAMPAIGNS</button>
+        <button mat-raised-button (click)="listCampaigns('past')" [class]="eventTime=='past'?'activeTab':'nonActiveTab'" disableRipple=true>PAST CAMPAIGNS</button>
+    </div>
+</div>
+
+<p-table [value]="campaigns">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Date</th>
+            <th>Campaign</th>
+            <th>View</th>
+            <th>Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-campaign>
+        <tr (click)="rowDeatils(campaign)">
+            <td>
+                <div style="display: inline-block; margin-left:10px;">
+                    <p class="campaign-text dark-blue"> {{campaign.date | date}}</p>
+                    <p class="campaign-text grey"> {{campaign.dayDiffLine}}</p>
+                </div>
+            </td>
+            <td>
+              <div style="display: inline-block;">
+                  <img src={{campaign.img_url}} style="display: inline; height:40px; width:40px; border-radius: 50%">
+              </div>
+              <div style="display: inline-block; margin-left:10px;">
+                  <p class="campaign-text dark-blue"> {{campaign.name}}</p>
+                  <p class="campaign-text grey"> {{campaign.location}}</p>
+              </div>
+
+            </td>
+            <td><div>
+                <div style="display: flex;justify-content: center;">
+                  <button class="btn dollarbtn">
+                    <i class="fa fa-usd" aria-hidden="true"></i> <i class="fa fa-plus fa-sm"></i>
+                  </button>
+                </div>
+                  <p class="sm-font" style="display: flex;justify-content: center;color:#4343c5">View Pricing</p>
+              </div>
+            </td>
+            <td>
+                <div style="display: flex;justify-content: space-around;">
+                  <div class="margin-div"><i class="fa fa-file-pdf-o grey margin-fa" aria-hidden="true"></i><p class="sm-font grey">CSV</p></div>
+                  <div class="margin-div"><i class="fa fa-bar-chart grey margin-fa" aria-hidden="true"></i><p class="sm-font grey">Report</p></div>
+                  <div class="margin-div">
+                    <input matInput class="calenderClass" [matDatepicker]="picker1" [(ngModel)]="campaign.date" (dateChange)="scheduleCampaign(campaign.id,$event)">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                    <p class="sm-font blue">Schedule Again</p></div>
+                </div>
+                </td>
+
+        </tr>
+    </ng-template>
+</p-table>
+
